@@ -1,0 +1,18 @@
+bookmark_list_friend:
+  url: /bookmark/list/:id
+  param: { module: bookmark, action: list }
+
+bookmark_list:
+  url: /bookmark/list
+  param: { module: bookmark, action: list }
+
+
+bookmark_delete:
+  url: /bookmark/delete/:id
+  class: sfDoctrineRoute
+  options: { model: Bookmark, type: object }
+  param: { module: bookmark, action: delete }
+  requirements:
+    id: \d+
+    method: [get, post]
+  

@@ -1,0 +1,2 @@
+all:
+  bookmark_pager_limit: 30

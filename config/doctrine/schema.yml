@@ -1,0 +1,27 @@
+options:
+  charset: utf8
+
+
+Bookmark:
+  actAs: [Timestampable]
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    member_id:
+      type: integer(4)
+      notnull: true
+    title:
+      type: string
+      notnull: true
+    url:
+      type: string
+      notnull: true
+    body:
+      type: string
+      notnull: false
+  relations:
+    Member:
+      onDelete: cascade
+      
