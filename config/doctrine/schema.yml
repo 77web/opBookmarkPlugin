@@ -21,7 +21,46 @@ Bookmark:
     body:
       type: string
       notnull: false
+    public_flag:
+      type: integer(1)
+      notnull: true
+      default: 1
+    comment_updated_at:
+      type: timestamp
   relations:
     Member:
       onDelete: cascade
-      
+  indexes:
+    created_at_index:
+      fields: [created_at]
+    member_id_created_at_index:
+      fields: [member_id, created_at]
+
+BookmarkComment:
+  actAs: [Timestampable]
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    bookmark_id:
+      type: integer(4)
+      notnull: true
+    member_id:
+      type: integer(4)
+      notnull: true
+    number:
+      type: integer(4)
+      notnull: true
+    body:
+      type: string
+      notnull: true
+  relations:
+    Bookmark:
+      foreignAlias: BookmarkComments
+      onDelete: cascade
+    Member:
+      onDelete: cascade
+  indexes:
+    bookmark_id_number_index:
+      fields: [bookmark_id, number]
