@@ -1,7 +1,15 @@
 Member:
   member_1:
     id: ~
-    name: "OpenPNE君"
+    name: "Me"
+    is_active: 1
+  member_2:
+    id: 2
+    name: "a friend"
+    is_active: 1
+  member_3:
+    id: 3
+    name: "a blocked member"
     is_active: 1
 
 MemberConfig:
@@ -17,3 +25,15 @@ MemberConfig:
     name: "password"
     value: "<?php echo md5('password') ?>"
     Member: member_1
+
+Bookmark:
+  my_bookmark:
+    id: 1
+    title: "My bookmark"
+    url: "http://www.77-web.com"
+    Member: member_1
+  friends_bookmark:
+    id: 2
+    title: "Friend's bookmark"
+    url: "http://www.yahoo.co.jp"
+    Member: member_2

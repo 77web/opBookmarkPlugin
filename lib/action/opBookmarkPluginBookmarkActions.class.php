@@ -49,6 +49,8 @@ class opBookmarkPluginBookmarkActions extends sfActions
   public function executeDelete(sfWebRequest $request)
   {
     $this->bookmark = $this->getRoute()->getObject();
+    $this->forward404Unless($this->getUser()->getMemberId() === $this->bookmark->getMemberId());
+    
     $this->form = new BaseForm();
     
     if($request->isMethod(sfRequest::POST))
@@ -60,5 +62,7 @@ class opBookmarkPluginBookmarkActions extends sfActions
       $this->getUser()->setFlash('notice', 'Bookmark deleted.');
       $this->redirect('@bookmark_list');
     }
+    
+    return sfView::INPUT;
   }
 }

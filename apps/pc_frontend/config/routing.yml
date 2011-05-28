@@ -14,5 +14,16 @@ bookmark_delete:
   param: { module: bookmark, action: delete }
   requirements:
     id: \d+
-    method: [get, post]
-  
+    sf_method: [get, post]
+
+bookmark_add:
+  url: /bookmark/add
+  param: { module: bookmark, action: add }
+  requirements:
+    sf_method: [get]
+
+bookmark_add_post:
+  url: /bookmark/add/post
+  param: { module: bookmark, action: add }
+  requirements:
+    sf_method: [post]
